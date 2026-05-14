@@ -1,0 +1,29 @@
+{
+  "name": "sqlmind-local-backend",
+  "version": "1.0.0",
+  "description": "Backend local para SQLMind Local - AI SQL Assistant.",
+  "main": "src/server.js",
+  "scripts": {
+    "dev": "nodemon src/server.js",
+    "start": "node src/server.js"
+  },
+  "keywords": [
+    "sql",
+    "assistant",
+    "ai",
+    "ollama",
+    "express",
+    "local"
+  ],
+  "author": "Matías Isaac Frutos González",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.18.3",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  }
+}

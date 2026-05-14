@@ -1,0 +1,132 @@
+@media (max-width: 1180px) {
+  .tool-layout,
+  .hero-card {
+    grid-template-columns: 1fr;
+  }
+
+  .tool-card {
+    position: static;
+  }
+
+  .feature-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 860px) {
+  .sqlmind-shell,
+  .sqlmind-shell.is-sidebar-collapsed {
+    grid-template-columns: 1fr;
+  }
+
+  .sqlmind-sidebar {
+    position: fixed;
+    left: 0;
+    top: auto;
+    bottom: 0;
+    z-index: 60;
+    width: 100%;
+    height: 72px;
+    padding: 8px;
+    border-right: 0;
+    border-top: 1px solid var(--border);
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .sqlmind-sidebar__brand,
+  .sqlmind-sidebar__footer {
+    display: none;
+  }
+
+  .sqlmind-sidebar__nav {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 6px;
+  }
+
+  .sidebar-link {
+    min-height: 54px;
+    justify-content: center;
+    padding: 0;
+  }
+
+  .sidebar-link__label {
+    display: none;
+  }
+
+  .sqlmind-content,
+  .sqlmind-shell.is-sidebar-collapsed .sqlmind-content {
+    width: 100%;
+    padding: 18px 14px 96px;
+  }
+
+  .sqlmind-navbar {
+    min-height: auto;
+    padding: 14px;
+    align-items: flex-start;
+  }
+
+  .sqlmind-navbar__right {
+    display: none;
+  }
+
+  .hero-card {
+    min-height: auto;
+    padding: 24px;
+  }
+
+  .hero-card h2 {
+    font-size: 38px;
+  }
+
+  .feature-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section-header,
+  .result-card__header,
+  .history-item__meta,
+  .history-item__actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .section-header .btn,
+  .result-card__header .btn,
+  .history-item__actions .btn {
+    width: 100%;
+  }
+}
+
+@media (max-width: 520px) {
+  .hero-panel strong {
+    font-size: 72px;
+  }
+
+  .tool-card,
+  .result-card,
+  .history-item,
+  .section-header {
+    padding: 16px;
+  }
+
+  .code-block,
+  .history-code {
+    font-size: 12px;
+    padding: 14px;
+  }
+
+  .sqlmind-sidebar__nav {
+    gap: 4px;
+  }
+
+  .sidebar-link {
+    min-height: 50px;
+  }
+}

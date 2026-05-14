@@ -1,0 +1,28 @@
+{
+  "activeProvider": "ollama",
+  "activeModel": "qwen2.5:0.5b",
+  "providers": [
+    {
+      "value": "fake",
+      "label": "Fake Local",
+      "enabled": true
+    },
+    {
+      "value": "ollama",
+      "label": "Ollama",
+      "enabled": true
+    }
+  ],
+  "models": {
+    "fake": [
+      "local-fake"
+    ],
+    "ollama": [
+      "qwen2.5:0.5b",
+      "qwen2.5:1.5b",
+      "llama3.2:1b",
+      "llama3.2:3b",
+      "mistral:7b"
+    ]
+  }
+}

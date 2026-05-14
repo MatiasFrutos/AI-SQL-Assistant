@@ -1,0 +1,64 @@
+[
+  {
+    "id": "sqlmind_b4f821d7-7e49-4c7f-bd88-99edc9d6f011",
+    "type": "generate",
+    "engine": "postgresql",
+    "input": "Obtener técnicos con cantidad de órdenes de trabajo cerradas este mes.",
+    "result": "Aquí tienes un ejemplo de consulta SQL clara y segura para obtener los técnicos con la cantidad de órdenes de trabajo cerradas este mes en PostgreSQL:\n\n```sql\nSELECT \n    t.name AS \"Técnico\",\n    COUNT(*) AS \"Número de órdenes\"\nFROM \n    orders o\nJOIN \n    tasks t ON o.task_id = t.id\nWHERE \n    o.completed_at IS NULL -- Filtrar órdenes no completadas\nGROUP BY \n    t.name, COUNT(*) -- Agrupar por nombre del técnico y la cantidad de órdenes\nHAVING \n    COUNT(*) > 0; -- Filtrar aquellos técnicos con más órdenes que se han completado\n```\n\n### Explicación:\n\n1. **SELECT**:\n   - `t.name AS \"Técnico\"`: Devuelve el nombre del técnico en formato de título.\n   - `COUNT(*) AS \"Número de órdenes\"`: Agrega una columna para contar los números de órdenes.\n\n2. **FROM**:\n   - `orders o` y `tasks t`: Establece la tabla de entradas (orders) y la tabla de registros (tasks).\n\n3. **WHERE**:\n   - `o.completed_at IS NULL`: Filtra las órdenes que no se han completado.\n\n4. **GROUP BY**:\n   - `t.name, COUNT(*)`: Agrupa por el nombre del técnico y la cantidad de órdenes.\n\n5. **HAVING**:\n   - `COUNT(*) > 0`: Filtra aquellos técnicos con más órdenes que se han completado.\n\n### Notas adicionales:\n\n- **LIMIT**: Si no se especifica, PostgreSQL te devolverá todos los registros.\n- **SELECT * salvo que sea estrictamente necesario**: No es necesario incluir todas las columnas en la consulta, solo las relevantes para el propósito específico.\n- **Si aplica, agregá LIMIT**: Si necesitas limitar la cantidad de resultados, puedes agregar `LIMIT 10` o cualquier otro número que te convenga.\n\nEste ejemplo proporciona una consulta clara y segura que obtiene los técnicos con órdenes de trabajo cerradas este mes.",
+    "explanation": "Resultado generado por modelo local mediante Ollama: qwen2.5:0.5b.",
+    "notes": [
+      "Revisá la consulta antes de ejecutarla en una base productiva.",
+      "La IA puede requerir ajustes según nombres reales de tablas y columnas."
+    ],
+    "provider": "ollama",
+    "createdAt": "2026-05-14T11:24:53.813Z",
+    "offline": false
+  },
+  {
+    "id": "sqlmind_90ace3fb-b64d-454f-ba99-63998c46c1a8",
+    "type": "generate",
+    "engine": "postgresql",
+    "input": "dame un sql query apra crear clientes, dni, correo y telefono",
+    "result": "Aquí tienes un ejemplo de una consulta SQL clara y segura para crear clientes, con los nombres de las columnas y la información adicional:\n\n```sql\nCREATE TABLE clientes (\n    id INT PRIMARY KEY,\n    dni VARCHAR(13) NOT NULL UNIQUE,\n    correo VARCHAR(255) NOT NULL UNIQUE,\n    telefono VARCHAR(15),\n    nombre VARCHAR(100),\n    apellidos VARCHAR(150)\n);\n```\n\n### Explicación:\n- **id**: Esta es la columna de clústering para el `PRIMARY KEY`. Es un número único que se usa como una clave primaria en las tablas.\n  - **NOT NULL**: No se permite que este campo sea vacío o null.\n  - **UNIQUE**: Se utiliza para asegurar que los valores de `dni` no sean repetidos.\n- **dni**: Esta es la columna de clústering para el `VARCHAR(13)`. Es un número de 13 dígitos que se usa como una clave única en las tablas.\n  - **NOT NULL**: No se permite que este campo sea vacío o null.\n  - **UNIQUE**: Se utiliza para asegurar que los valores de `dni` no sean repetidos.\n- **correo**: Esta es la columna de clústering para el `VARCHAR(255)`. Es un string de hasta 255 caracteres que se usa como una clave única en las tablas.\n  - **NOT NULL**: No se permite que este campo sea vacío o null.\n  - **UNIQUE**: Se utiliza para asegurar que los valores de `correo` no sean repetidos.\n- **telefono**: Esta es la columna de clústering para el `VARCHAR(15)`. Es un número de 15 dígitos que se usa como una clave única en las tablas.\n  - **NOT NULL**: No se permite que este campo sea vacío o null.\n  - **UNIQUE**: Se utiliza para asegurar que los valores de `telefono` no sean repetidos.\n- **nombre**: Esta es la columna de clústering para el `VARCHAR(100)`. Es un string de hasta 100 caracteres que se usa como una clave única en las tablas.\n  - **NOT NULL**: No se permite que este campo sea vacío o null.\n- **apellidos**: Esta es la columna de clústering para el `VARCHAR(150)`. Es un string de hasta 150 caracteres que se usa como una clave única en las tablas.\n\n### Notas adicionales:\n- **LIMIT**: Si aplica, puedes agregarlo a la consulta. Por ejemplo: `SELECT * FROM clientes LIMIT 10;`.\n- **Clústering y Cláusulas de Filtrado**: En PostgreSQL, se puede usar clústering para agrupar datos y filtrar los resultados basados en condiciones específicas.\n  - **Clústering**: `WHERE dni = '...'` o `dni IN ('...')`.\n  - **Filtrado**: `SELECT * FROM clientes WHERE nombre LIKE '%...'`.\n\nEste ejemplo proporciona una consulta básica que crea un conjunto de datos para clientes con clústeres únicos y no repetidos. Si necesitas crear más datos, puedes agregar más columnas o condiciones según sea necesario.",
+    "explanation": "Resultado generado por modelo local mediante Ollama: qwen2.5:0.5b.",
+    "notes": [
+      "Revisá la consulta antes de ejecutarla en una base productiva.",
+      "La IA puede requerir ajustes según nombres reales de tablas y columnas."
+    ],
+    "provider": "ollama",
+    "createdAt": "2026-05-14T11:20:00.656Z",
+    "offline": false
+  },
+  {
+    "id": "sqlmind_4ce210a2-ef7a-4c79-b377-75f8a42d1f64",
+    "type": "generate",
+    "engine": "postgresql",
+    "input": "necesito clientes, dni y cuit tambien correo",
+    "result": "Aquí tienes un ejemplo de consulta SQL clara, segura y mantenible basada en los datos proporcionados:\n\n```sql\nSELECT \n    dni,\n    cuit,\n    correo\nFROM \n    clientes;\n```\n\n### Explicación:\n- **dni**: Identificador único del cliente.\n- **cuit**: Cuenta única para cada cliente.\n- **correo**: Correo electrónico de cada cliente.\n\nEste tipo de consulta es útil cuando necesitas obtener datos específicos relacionados entre diferentes tablas. En este caso, se obtiene el `dni`, `cuit` y `correo` del cliente que está en la tabla `clientes`. Si no hay información específica sobre los clientes, esta consulta generará una query base adaptable.\n\n### Consideraciones:\n- **Limites**: Si necesitas obtener más datos o limitar la cantidad de resultados, puedes agregar un `LIMIT` a la consulta.\n  ```sql\n  SELECT \n      dni,\n      cuit,\n      correo\n  FROM \n      clientes\n  LIMIT 10;\n  ```\n- **Reutilización**: Si es posible, considera reutilizar esta consulta en otras consultas o tablas para evitar repetición.\n\n### Notas:\n- **Nombre de la tabla**: Asegúrate de que el nombre de la tabla `clientes` sea correcto y se alinea con los datos proporcionados.\n- **Reglas**: Las reglas son útiles para asegurar que las consultas sean legibles y seguras. Sin embargo, en este caso, no necesitas agregar reglas específicas.\n\nSi tienes más información o necesitas ajustar esta consulta, por favor me pido que me ayudes con eso.",
+    "explanation": "Resultado generado por modelo local mediante Ollama: qwen2.5:0.5b.",
+    "notes": [
+      "Revisá la consulta antes de ejecutarla en una base productiva.",
+      "La IA puede requerir ajustes según nombres reales de tablas y columnas."
+    ],
+    "provider": "ollama",
+    "createdAt": "2026-05-14T11:18:31.842Z",
+    "offline": false
+  },
+  {
+    "id": "sqlmind_fd2989e0-d14f-4d29-b003-0b853bc1b51a",
+    "type": "generate",
+    "engine": "sqlite",
+    "input": "necesito unas tablas de clientes, dni y correo y telefono",
+    "result": "SELECT\n  id,\n  nombre,\n  estado,\n  created_at\nFROM clientes\nWHERE estado = 'activo'\nORDER BY created_at DESC\nLIMIT 100;",
+    "explanation": "Se generó una consulta base adaptable para listar registros activos.",
+    "notes": [
+      "Resultado generado con proveedor local/fake.",
+      "Podés activar Ollama cambiando AI_PROVIDER=ollama en el archivo .env.",
+      "Reemplazá tabla_principal por el nombre real de la tabla.",
+      "Agregá filtros específicos según el caso de negocio."
+    ],
+    "provider": "fake",
+    "createdAt": "2026-05-14T11:00:39.463Z",
+    "offline": false
+  }
+]
